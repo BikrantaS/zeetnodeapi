@@ -1,5 +1,8 @@
 const http = require('http');
 
+const hostname = '0.0.0.0';
+const port = 3000;
+
 let c = 0;
 const server = http.createServer((req, res) => {
     console.log('request no.:', c++);
@@ -16,6 +19,6 @@ const server = http.createServer((req, res) => {
 
 })
 
-server.listen(5000, () => {
-    console.log("listening on port 5000..");
+server.listen(port, hostname, () => {
+    console.log(`server on http://${hostname}:${port}..`);
 })
