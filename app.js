@@ -32,10 +32,13 @@ const express = require('express');
 const logger = require('./logger');//importing defined middleware
 const authorize = require('./authorize');
 const data = require('./data');
+const cors = require('cors');
 
 const app = express();
 app.use([logger, authorize]);
 // app.use(express.static('./YOUR STATIC DIRECTORY'));  //to access staticfiles
+
+app.use(cors({ origin: "https://react-feature-testing.web.app/", }))
 
 app.get('/', logger, (req, res) => {
     res.send("WELCOME TO ROOT");
@@ -59,5 +62,5 @@ app.all('*', (req, res) => {
 
 
 app.listen(port, hostname, () => {
-    console.log("Server running on port 5000..")
+    console.log("Server running on port 3000..")
 })
