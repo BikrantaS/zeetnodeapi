@@ -23,6 +23,10 @@
 //     console.log(`server on http://${hostname}:${port}..`);
 // })
 
+const hostname = '0.0.0.0';
+const port = 3000;
+
+
 
 const express = require('express');
 const logger = require('./logger');//importing defined middleware
@@ -54,6 +58,6 @@ app.all('*', (req, res) => {
 
 
 
-app.listen(5000, () => {
+app.listen(port, hostname, () => {
     console.log("Server running on port 5000..")
 })
